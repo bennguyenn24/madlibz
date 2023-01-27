@@ -44,14 +44,14 @@ const FunForm = () => {
 
 	return (
 		<div>
-			{!submit ? (
+			{count != 0 ? (
 				<div>
 					<h1>Weird Day Ad-Lib</h1>
 					<div>Words Left: {count}</div>
 					<form>
 						{count != 0 ? (
 							<div>
-								<label htmlFor="word">Enter {typeArr[index]}: </label>
+								<label htmlFor="word">Enter {typeArr[index]}:</label>
 								<input
 									id="word"
 									name="word"
