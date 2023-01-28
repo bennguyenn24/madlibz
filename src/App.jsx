@@ -1,9 +1,13 @@
 import { useState } from "react";
-import SadForm from "./components/SadForm";
-import FunForm from "./components/FunForm";
 import Start from "./components/Start";
-
+import Form from "./components/Form";
+import { sadStoryTypeArr, getSadStory, funStoryTypeArr, getFunStory } from "./shared/stories";
 import "./App.css";
+
+const StoryType = {
+	Funny: 'Funny',
+	Sad: 'Sad'
+};
 
 function App() {
 	const [start, setStart] = useState(false);
@@ -12,8 +16,9 @@ function App() {
 	return (
 		<div className="App">
 			{!start && <Start setStart={setStart} setOptions={setOptions} />}
-			{start && options === "Funny" && <FunForm />}
-			{start && options === "Sad" && <SadForm />}
+			{start && options === StoryType.Funny && <Form typeArr={funStoryTypeArr} getStory={getFunStory} />}
+			{start && options === StoryType.Sad && <Form typeArr={sadStoryTypeArr} getStory={getSadStory} />}
+
 		</div>
 	);
 }
