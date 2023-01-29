@@ -1,24 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-const FunForm = () => {
-	// Array to store the values
-	const typeArr = [
-		"noun",
-		"adjective",
-		"noun (plural)",
-		"famous person",
-		"place",
-		"verb (ending in ing)",
-		"adjective",
-		"your favorite song",
-		"verb (ending in ed)",
-		"adverb",
-		"verb (ending in ing)",
-		"name of supermodel",
-		"adjective",
-	];
-
+const Form = ({typeArr, getStory}) => {
 	const [index, setIndex] = useState(0);
 	const [count, setCount] = useState(typeArr.length);
 	const [submit, setSubmit] = useState(false);
@@ -74,19 +57,11 @@ const FunForm = () => {
 			) : (
 				// Story
 				<div>
-					<p>
-						Once upon a time there was a {words[0]}. It had {words[1]} {words[2]}! One
-						day it met {words[3]} on the side of the
-						{words[4]} they were {words[5]}. It was very {words[6]}; they both looked
-						like hobos! All of the sudden they started singing {words[7]} really
-						loudly. They {words[8]}
-						really {words[9]}! {words[10]} started {words[11]} with {words[12]}. They
-						looked really {words[13]}!
-					</p>
+					<p>{getStory(words)}</p>
 				</div>
 			)}
 		</div>
 	);
 };
 
-export default FunForm;
+export default Form;
